@@ -39,9 +39,8 @@ var findWinner = function(userChoice, cpuChoice) {
   if(userChoice === cpuChoice){
     output = makeResultMessage(2, userChoice, cpuChoice);
   }
- else{
-    output = "Please enter a valid move ('rock', 'paper', or scissors')";
- }
+
+ 
   alert(output);
 } 
 
@@ -54,20 +53,27 @@ var makeResultMessage = function(msgIndex, userPick, cpuPick){
 }
 
 
+var replay = function(){
+  var playAgain = prompt("Would you like to play again? (y/n)");
+  if(playAgain === "y"){
+    RPS();
+  }
+}
+
 var RPS = function(){
   var userChoice = prompt("Rock, paper, or scissors?");
   var cpuChoice = generateCPUChoice();
 
   findWinner(userChoice, cpuChoice);
-
+ 
+  replay();
 }
 
 RPS();
 
-
 /*
-- [ ] (easy) - Prevent invalid user choices from being made
-- [ ] (easy) - Improve win/loss messaging, i.e. "You chose x. Computer chose y. You win/lose"
+- [*] (easy) - Prevent invalid user choices from being made
+- [*] (easy) - Improve win/loss messaging, i.e. "You chose x. Computer chose y. You win/lose"
 - [ ] (medium/hard) Allow more rounds 
 - [ ] "Best 3 of 5"
 - [ ] (depends on ^) Keep score of wins and losses
