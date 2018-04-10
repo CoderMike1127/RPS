@@ -10,6 +10,41 @@ var generateCPUChoice = function(){
 }
 
 
+var findWinner = function(userChoice, cpuChoice) {
+   
+  var output = ""
+  if(userChoice === "rock"){
+    if (cpuChoice === "paper"){
+      output = makeResultMessage(0, userChoice, cpuChoice)
+    } else if(cpuChoice === "scissors"){
+      output = makeResultMessage(1, userChoice, cpuChoice);
+    }
+
+  }
+  else if(userChoice === "paper"){
+    if(cpuChoice === "rock"){
+      output = makeResultMessage(1, userChoice, cpuChoice);
+    } else if(cpuChoice === "scissors"){
+      output = makeResultMessage(0, userChoice, cpuChoice);
+    }
+
+  }
+  else if(userChoice === "scissors"){
+    if(cpuChoice === "rock"){
+      output = makeResultMessage(0, userChoice, cpuChoice);
+    } else if(cpuChoice === "paper"){
+      output = makeResultMessage(1, userChoice, cpuChoice);
+    }
+  }
+  if(userChoice === cpuChoice){
+    output = makeResultMessage(2, userChoice, cpuChoice);
+  }
+
+  alert(output);
+} 
+
+
+
 var makeResultMessage = function(msgIndex, userPick, cpuPick){
   var msgOptions = ['You lose!', 'You Win!', 'Tie!'];
   var userOptions = ["rock", "paper", "scissors"];
@@ -19,49 +54,12 @@ var makeResultMessage = function(msgIndex, userPick, cpuPick){
 
 var RPS = function(){
   var userChoice = prompt("Rock, paper, or scissors?");
-  var oppChoice = "Opponent chose "
   var cpuChoice = generateCPUChoice();
-  
 
-  
-
-
-  var findWinner = function() {
-   
-    var output = ""
-    if(userChoice === "rock"){
-      if (cpuChoice === "paper"){
-        output = makeResultMessage(0, userChoice, cpuChoice)
-      } else if(cpuChoice === "scissors"){
-        output = oppChoice + makeResultMessage(1, userChoice, cpuChoice);
-      }
-
-    }
-    else if(userChoice === "paper"){
-      if(cpuChoice === "rock"){
-        output = oppChoice + makeResultMessage(1, userChoice, cpuChoice);
-      } else if(cpuChoice === "scissors"){
-        output = oppChoice + makeResultMessage(0, userChoice, cpuChoice);
-      }
-
-    }
-    else if(userChoice === "scissors"){
-      if(cpuChoice === "rock"){
-        output = makeResultMessage(0, userChoice, cpuChoice);
-      } else if(cpuChoice === "paper"){
-        output = makeResultMessage(1, userChoice, cpuChoice);
-      }
-    }
-    if(userChoice === cpuChoice){
-      output = makeResultMessage(2, userChoice, cpuChoice);
-    }
-
-    alert(output);
-  } 
-
-  findWinner();
+  findWinner(userChoice, cpuChoice);
 
 }
+
 RPS();
 
 
