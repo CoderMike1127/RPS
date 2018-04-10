@@ -39,8 +39,10 @@ var findWinner = function(userChoice, cpuChoice) {
   if(userChoice === cpuChoice){
     output = makeResultMessage(2, userChoice, cpuChoice);
   }
+  if(userChoice !== "rock" && userChoice !== "paper" && userChoice !== "scissors"){
+    output = "Please choose a valid move! ('rock', 'paper', 'scissors')";
+  }
 
- 
   alert(output);
 } 
 
@@ -58,6 +60,10 @@ var replay = function(){
   if(playAgain === "y"){
     RPS();
   }
+}
+
+var gameStart = function(){
+  
 }
 
 var RPS = function(){
