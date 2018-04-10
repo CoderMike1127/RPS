@@ -39,7 +39,9 @@ var findWinner = function(userChoice, cpuChoice) {
   if(userChoice === cpuChoice){
     output = makeResultMessage(2, userChoice, cpuChoice);
   }
-
+ else{
+    output = "Please enter a valid move ('rock', 'paper', or scissors')";
+ }
   alert(output);
 } 
 
